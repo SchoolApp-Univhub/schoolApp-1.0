@@ -1,0 +1,399 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.RuntimeError'> FPDF error: PIL not installed"
+p3
+sS'layer'
+p4
+S'C:\\web2py\\web2py\\applications\\schoolApp\\views\\generic.pdf'
+p5
+sS'code'
+p6
+S"import os\nfrom gluon.contrib.generics import pdf_from_html\nfilename = '%s/%s.html' % (request.controller,request.function)\nif os.path.exists(os.path.join(request.folder,'views',filename)):\n    html=response.render(filename)\nelse:\n    html=BODY(BEAUTIFY(response._vars)).xml()\n    pass\nresponse.write(pdf_from_html(html))\nresponse.write('\\n', escape=False)"
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.RuntimeError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.RuntimeError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.RuntimeError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.RuntimeError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.RuntimeError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.RuntimeError object>'
+p23
+sS'__reduce__'
+p24
+S'<built-in method __reduce__ of exceptions.RuntimeError object>'
+p25
+sS'__str__'
+p26
+S"<method-wrapper '__str__' of exceptions.RuntimeError object>"
+p27
+sS'__format__'
+p28
+S'<built-in method __format__ of exceptions.RuntimeError object>'
+p29
+sS'__getattribute__'
+p30
+S"<method-wrapper '__getattribute__' of exceptions.RuntimeError object>"
+p31
+sS'__class__'
+p32
+S"<type 'exceptions.RuntimeError'>"
+p33
+sS'__unicode__'
+p34
+S'<built-in method __unicode__ of exceptions.RuntimeError object>'
+p35
+sS'__delattr__'
+p36
+S"<method-wrapper '__delattr__' of exceptions.RuntimeError object>"
+p37
+sS'__subclasshook__'
+p38
+S'<built-in method __subclasshook__ of type object>'
+p39
+sS'__repr__'
+p40
+S"<method-wrapper '__repr__' of exceptions.RuntimeError object>"
+p41
+sS'args'
+p42
+S"('FPDF error: PIL not installed',)"
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.RuntimeError object>'
+p47
+sS'__doc__'
+p48
+S"'Unspecified run-time error.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.RuntimeError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S'FPDF error: PIL not installed'
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S'st`\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top">ajax</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">application</td><td valign="top">:</td><td><div>schoolApp</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">args</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">body</td><td valign="top">:</td><td><div>&lt;cStringIO.StringO object at 0x07EAABE0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cid</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">client</td><td valign="top">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">controller</td><td valign="top">:</td><td><div>school</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cookies</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">session_id_admin</td><td valign="top">:</td><td><div>127.0.0.1-3635d66f-932b-4fc3-8002-a2e785608a68<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_as</td><td valign="top">:</td><td><div>127.0.0.1-b87e5519-309a-4c5c-930e-62fe9c74cd7c<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_schoolapp</td><td valign="top">:</td><td><div>127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_welcome</td><td valign="top">:</td><td><div>127.0.0.1-041fb9f9-6d35-4783-8662-60ec0647a311<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">env</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">app_folders</td><td valign="top">:</td><td><div>set([&#x27;C:\\\\web2py\\\\web2py\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\web2py\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\web2py\\\\web2py\\\\applications\\\\schoolApp\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">applications_parent</td><td valign="top">:</td><td><div>C:\\web2py\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_args</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_options</td><td valign="top">:</td><td><div>&lt;Values at 0x339a7b0: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;192.168.2.1&#x27;, &#x27;fe80::5efe:10.143.2.87%33&#x27;, &#x27;fe80::9979:3691:9084:33be%11&#x27;, &#x27;2002:4067:a109:a:45de:fb5b:bf22:de3d&#x27;, &#x27;fe80::1407:c8b3:9356:ba79%25&#x27;, &#x27;64.103.161.28&#x27;, &#x27;10.143.2.87&#x27;, &#x27;192.168.137.1&#x27;, &#x27;2002:4067:a109:a:9979:3691:9084:33be&#x27;, &#x27;fe80::200:5efe:64.103.161.28%33&#x27;, &#x27;fec0::a:9979:3691:9084:33be%1&#x27;, &#x27;fe80::79cd:3953:933a:bb8c%12&#x27;, &#x27;fe80::6c71:3008:6ef2:353b%24&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;ranp-WS&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\web2py\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;import_models&#x27;: False, &#x27;winservice&#x27;: &#x27;&#x27;, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;profiler_filename&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;interfaces&#x27;: None, &#x27;minthreads&#x27;: None, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">db_sessions</td><td valign="top">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">debugging</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">gluon_parent</td><td valign="top">:</td><td><div>C:\\web2py\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_accept</td><td valign="top">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_accept_encoding</td><td valign="top">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_accept_language</td><td valign="top">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_connection</td><td valign="top">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_cookie</td><td valign="top">:</td><td><div>session_id_as=127.0.0.1-b87e5519-309a-4c5c-930e-62fe9c74cd7c; session_id_welcome=127.0.0.1-041fb9f9-6d35-4783-8662-60ec0647a311; session_id_admin=127.0.0.1-3635d66f-932b-4fc3-8002-a2e785608a68; session_id_schoolapp=127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_host</td><td valign="top">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_user_agent</td><td valign="top">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_jython</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_pypy</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">local_hosts</td><td valign="top">:</td><td><div><table><tr><td><div>192.168.2.1</div></td></tr><tr><td><div>fe80::5efe:10.143.2.87%33</div></td></tr><tr><td><div>fec0::a:9979:3691:9084:33be%1</div></td></tr><tr><td><div>2002:4067:a109:a:45de:fb5b:bf22:de3d</div></td></tr><tr><td><div>fe80::1407:c8b3:9356:ba79%25</div></td></tr><tr><td><div>fe80::200:5efe:64.103.161.28%33</div></td></tr><tr><td><div>64.103.161.28</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>10.143.2.87</div></td></tr><tr><td><div>192.168.137.1</div></td></tr><tr><td><div>ranp-WS</div></td></tr><tr><td><div>2002:4067:a109:a:9979:3691:9084:33be</div></td></tr><tr><td><div>fe80::6c71:3008:6ef2:353b%24</div></td></tr><tr><td><div>fe80::9979:3691:9084:33be%11</div></td></tr><tr><td><div>fe80::79cd:3953:933a:bb8c%12</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>ranp-WS.cisco.com</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path_info</td><td valign="top">:</td><td><div>/schoolApp/school/admin.pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">query_string</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">remote_addr</td><td valign="top">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">remote_port</td><td valign="top">:</td><td><div>50626</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">request_method</td><td valign="top">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">request_uri</td><td valign="top">:</td><td><div>/schoolApp/school/admin.pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">script_name</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_name</td><td valign="top">:</td><td><div>ranp-WS</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_port</td><td valign="top">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_protocol</td><td valign="top">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_software</td><td valign="top">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">web2py_path</td><td valign="top">:</td><td><div>C:\\web2py\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">web2py_version</td><td valign="top">:</td><td><div>2.5.1-stable+timestamp.2013.06.06.15.39.19</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_errors</td><td valign="top">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x025550D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_file_wrapper</td><td valign="top">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x032D1ED8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_input</td><td valign="top">:</td><td><div>&lt;socket._fileobject object at 0x07EBEEB0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_multiprocess</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_multithread</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_run_once</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_url_scheme</td><td valign="top">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_version</td><td valign="top">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">extension</td><td valign="top">:</td><td><div>pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">folder</td><td valign="top">:</td><td><div>C:\\web2py\\web2py\\applications\\schoolApp\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">function</td><td valign="top">:</td><td><div>admin</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">get_vars</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">global_settings</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">app_folders</td><td valign="top">:</td><td><div>set([&#x27;C:\\\\web2py\\\\web2py\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\web2py\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\web2py\\\\web2py\\\\applications\\\\schoolApp\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">applications_parent</td><td valign="top">:</td><td><div>C:\\web2py\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_args</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_options</td><td valign="top">:</td><td><div>&lt;Values at 0x339a7b0: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;192.168.2.1&#x27;, &#x27;fe80::5efe:10.143.2.87%33&#x27;, &#x27;fe80::9979:3691:9084:33be%11&#x27;, &#x27;2002:4067:a109:a:45de:fb5b:bf22:de3d&#x27;, &#x27;fe80::1407:c8b3:9356:ba79%25&#x27;, &#x27;64.103.161.28&#x27;, &#x27;10.143.2.87&#x27;, &#x27;192.168.137.1&#x27;, &#x27;2002:4067:a109:a:9979:3691:9084:33be&#x27;, &#x27;fe80::200:5efe:64.103.161.28%33&#x27;, &#x27;fec0::a:9979:3691:9084:33be%1&#x27;, &#x27;fe80::79cd:3953:933a:bb8c%12&#x27;, &#x27;fe80::6c71:3008:6ef2:353b%24&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;ranp-WS&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\web2py\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;import_models&#x27;: False, &#x27;winservice&#x27;: &#x27;&#x27;, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;profiler_filename&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;interfaces&#x27;: None, &#x27;minthreads&#x27;: None, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">db_sessions</td><td valign="top">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">debugging</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">gluon_parent</td><td valign="top">:</td><td><div>C:\\web2py\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_jython</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_pypy</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">local_hosts</td><td valign="top">:</td><td><div><table><tr><td><div>192.168.2.1</div></td></tr><tr><td><div>fe80::5efe:10.143.2.87%33</div></td></tr><tr><td><div>fec0::a:9979:3691:9084:33be%1</div></td></tr><tr><td><div>2002:4067:a109:a:45de:fb5b:bf22:de3d</div></td></tr><tr><td><div>fe80::1407:c8b3:9356:ba79%25</div></td></tr><tr><td><div>fe80::200:5efe:64.103.161.28%33</div></td></tr><tr><td><div>64.103.161.28</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>10.143.2.87</div></td></tr><tr><td><div>192.168.137.1</div></td></tr><tr><td><div>ranp-WS</div></td></tr><tr><td><div>2002:4067:a109:a:9979:3691:9084:33be</div></td></tr><tr><td><div>fe80::6c71:3008:6ef2:353b%24</div></td></tr><tr><td><div>fe80::9979:3691:9084:33be%11</div></td></tr><tr><td><div>fe80::79cd:3953:933a:bb8c%12</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>ranp-WS.cisco.com</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">web2py_version</td><td valign="top">:</td><td><div>2.5.1-stable+timestamp.2013.06.06.15.39.19</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_https</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_local</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_restful</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">now</td><td valign="top">:</td><td><div>datetime.datetime(2013, 10, 17, 17, 18, 50, 132000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">post_vars</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">raw_args</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">raw_extension</td><td valign="top">:</td><td><div>pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">url</td><td valign="top">:</td><td><div>/schoolApp/school/admin.pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">utcnow</td><td valign="top">:</td><td><div>datetime.datetime(2013, 10, 17, 11, 48, 50, 132000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">uuid</td><td valign="top">:</td><td><div>schoolApp/127.0.0.1.2013-10-17.17-18-50.a76ad95c-a514-43fd-bfcf-fbc82ee6c2d2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">vars</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">environ</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">HTTP_ACCEPT</td><td valign="top">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_ACCEPT_ENCODING</td><td valign="top">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_ACCEPT_LANGUAGE</td><td valign="top">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_CONNECTION</td><td valign="top">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_COOKIE</td><td valign="top">:</td><td><div>session_id_as=127.0.0.1-b87e5519-309a-4c5c-930e-62fe9c74cd7c; session_id_welcome=127.0.0.1-041fb9f9-6d35-4783-8662-60ec0647a311; session_id_admin=127.0.0.1-3635d66f-932b-4fc3-8002-a2e785608a68; session_id_schoolapp=127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_HOST</td><td valign="top">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_USER_AGENT</td><td valign="top">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">PATH_INFO</td><td valign="top">:</td><td><div>/schoolApp/school/admin.pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">QUERY_STRING</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REMOTE_ADDR</td><td valign="top">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REMOTE_PORT</td><td valign="top">:</td><td><div>50626</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REQUEST_METHOD</td><td valign="top">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REQUEST_URI</td><td valign="top">:</td><td><div>/schoolApp/school/admin.pdf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SCRIPT_NAME</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_NAME</td><td valign="top">:</td><td><div>ranp-WS</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_PORT</td><td valign="top">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_PROTOCOL</td><td valign="top">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_SOFTWARE</td><td valign="top">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.errors</td><td valign="top">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x025550D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.file_wrapper</td><td valign="top">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x032D1ED8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.input</td><td valign="top">:</td><td><div>&lt;cStringIO.StringO object at 0x07EAABE0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.multiprocess</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.multithread</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.run_once</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.url_scheme</td><td valign="top">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.version</td><td valign="top">:</td><td><div>1</div></td></tr></table></div></td></tr></table></div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+sS'lnum'
+p66
+I212
+sS'lines'
+p67
+(dp68
+sS'call'
+p69
+S'(code="import os\\nfrom gluon.contrib.generics import pdf...om_html(html))\\nresponse.write(\'\\\\n\', escape=False)", environment={\'A\': <class \'gluon.html.A\'>, \'ANY_OF\': <class \'gluon.validators.ANY_OF\'>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'BUTTON\': <class \'gluon.html.BUTTON\'>, \'CAT\': <class \'gluon.html.CAT\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, ...}, layer=r\'C:\\web2py\\web2py\\applications\\schoolApp\\views\\generic.pdf\')'
+p70
+sS'func'
+p71
+S'restricted'
+p72
+sa(dp73
+g62
+S'C:\\web2py\\web2py\\applications\\schoolApp\\views\\generic.pdf'
+p74
+sg64
+(dp75
+sg66
+I9
+sg67
+(dp76
+I2
+S'import os'
+p77
+sI3
+S'from gluon.contrib.generics import pdf_from_html'
+p78
+sI4
+S"filename = '%s/%s.html' % (request.controller,request.function)"
+p79
+sI5
+S"if os.path.exists(os.path.join(request.folder,'views',filename)):"
+p80
+sI6
+S'   html=response.render(filename)'
+p81
+sI7
+S'else:'
+p82
+sI8
+S'   html=BODY(BEAUTIFY(response._vars)).xml()'
+p83
+sI9
+S'pass'
+p84
+sI10
+S'=pdf_from_html(html)'
+p85
+sI11
+S'}}'
+p86
+ssg69
+S'()'
+p87
+sg71
+S'<module>'
+p88
+sa(dp89
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\generics.py'
+p90
+sg64
+(dp91
+sg66
+I72
+sg67
+(dp92
+sg69
+S'(html=\'<!--[if HTML5]><![endif]-->\\r\\n<!DOCTYPE html>\\r\\n<!...%2Fstatic%2Fimages"></script>\\r\\n</body>\\r\\n</html>\\r\\n\')'
+p93
+sg71
+S'pdf_from_html'
+p94
+sa(dp95
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\generics.py'
+p96
+sg64
+(dp97
+sg66
+I63
+sg67
+(dp98
+sg69
+S"(html='&lt;!--[if HTML5]&gt;&lt;![endif]--&gt;\\r\\n\\r\\n&lt;!...[endif]--&gt;\\r\\n  \\r\\n  \\r\\n  \\r\\n\\r\\n\\r\\n</div></div></div>')"
+p99
+sg71
+S'pyfpdf_from_html'
+p100
+sa(dp101
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\fpdf\\html.py'
+p102
+sg64
+(dp103
+sg66
+I397
+sg67
+(dp104
+sg69
+S"(self=<gluon.contrib.generics.MyFPDF object>, text='&lt;!--[if HTML5]&gt;&lt;![endif]--&gt;\\r\\n\\r\\n&lt;!...[endif]--&gt;\\r\\n  \\r\\n  \\r\\n  \\r\\n\\r\\n\\r\\n</div></div></div>', image_map=<function image_map>)"
+p105
+sg71
+S'write_html'
+p106
+sa(dp107
+g62
+S'C:\\web2py\\web2py\\HTMLParser.pyc'
+p108
+sg64
+(dp109
+sg66
+I108
+sg67
+(dp110
+sg69
+S"(self=<gluon.contrib.fpdf.html.HTML2FPDF instance>, data='&lt;!--[if HTML5]&gt;&lt;![endif]--&gt;\\r\\n\\r\\n&lt;!...[endif]--&gt;\\r\\n  \\r\\n  \\r\\n  \\r\\n\\r\\n\\r\\n</div></div></div>')"
+p111
+sg71
+S'feed'
+p112
+sa(dp113
+g62
+S'C:\\web2py\\web2py\\HTMLParser.pyc'
+p114
+sg64
+(dp115
+sg66
+I148
+sg67
+(dp116
+sg69
+S'(self=<gluon.contrib.fpdf.html.HTML2FPDF instance>, end=0)'
+p117
+sg71
+S'goahead'
+p118
+sa(dp119
+g62
+S'C:\\web2py\\web2py\\HTMLParser.pyc'
+p120
+sg64
+(dp121
+sg66
+I269
+sg67
+(dp122
+sg69
+S'(self=<gluon.contrib.fpdf.html.HTML2FPDF instance>, i=2476)'
+p123
+sg71
+S'parse_starttag'
+p124
+sa(dp125
+g62
+S'C:\\web2py\\web2py\\HTMLParser.pyc'
+p126
+sg64
+(dp127
+sg66
+I325
+sg67
+(dp128
+sg69
+S"(self=<gluon.contrib.fpdf.html.HTML2FPDF instance>, tag='img', attrs=[('src', '/schoolApp/static/images/report.jpg'), ('alt', 'Details')])"
+p129
+sg71
+S'handle_startendtag'
+p130
+sa(dp131
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\fpdf\\html.py'
+p132
+sg64
+(dp133
+sg66
+I270
+sg67
+(dp134
+sg69
+S"(self=<gluon.contrib.fpdf.html.HTML2FPDF instance>, tag='img', attrs={'alt': 'Details', 'src': '/schoolApp/static/images/report.jpg'})"
+p135
+sg71
+S'handle_starttag'
+p136
+sa(dp137
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\fpdf\\fpdf.py'
+p138
+sg64
+(dp139
+sg66
+I913
+sg67
+(dp140
+sg69
+S"(self=<gluon.contrib.generics.MyFPDF object>, name=r'C:\\web2py\\web2py\\applications\\schoolApp\\static/images/report.jpg', x=130.06040366666664, y=104.35125, w=0.0, h=0.0, type='jpg', link='')"
+p141
+sg71
+S'image'
+p142
+sa(dp143
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\fpdf\\fpdf.py'
+p144
+sg64
+(dp145
+sg66
+I1642
+sg67
+(dp146
+sg69
+S"(self=<gluon.contrib.generics.MyFPDF object>, filename=r'C:\\web2py\\web2py\\applications\\schoolApp\\static/images/report.jpg')"
+p147
+sg71
+S'_parsejpg'
+p148
+sa(dp149
+g62
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\contrib\\fpdf\\fpdf.py'
+p150
+sg64
+(dp151
+sg66
+I225
+sg67
+(dp152
+sg69
+S"(self=<gluon.contrib.generics.MyFPDF object>, msg='PIL not installed')"
+p153
+sg71
+S'error'
+p154
+sasS'pyver'
+p155
+S'Python 2.7: C:\\web2py\\web2py\\web2py.exe (prefix: C:\\web2py\\web2py)'
+p156
+sS'session'
+p157
+g57
+(S's\x1a\x0c\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top">auth</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">expiration</td><td valign="top">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">hmac_key</td><td valign="top">:</td><td><div>5c5d866d-a739-4eee-adfa-382396fdd2f8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">last_visit</td><td valign="top">:</td><td><div>datetime.datetime(2013, 10, 17, 17, 18, 44, 147000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">remember</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">user</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">email</td><td valign="top">:</td><td><div>admin1@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">first_name</td><td valign="top">:</td><td><div>admin1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">id</td><td valign="top">:</td><td><div>2L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">last_name</td><td valign="top">:</td><td><div>admin1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">phone</td><td valign="top">:</td><td><div>9626588853</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">registration_id</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">registration_key</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">reset_password_key</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">school_id</td><td valign="top">:</td><td><div>1L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">user_type</td><td valign="top">:</td><td><div>1L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">zip</td><td valign="top">:</td><td><div>638182</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">user_groups</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">2</td><td valign="top">:</td><td><div>admin</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">class_id</td><td valign="top">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">flash</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">last_orderby</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">last_query</td><td valign="top">:</td><td><div>db.auth_membership.id&gt;0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">section_id</td><td valign="top">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">serversearch</td><td valign="top">:</td><td><div>1</div></td></tr></table></div>'
+tRp158
+sS'etype'
+p159
+S"<type 'exceptions.RuntimeError'>"
+p160
+sS'date'
+p161
+S'Thu Oct 17 17:18:50 2013'
+p162
+sS'response'
+p163
+g57
+(S's\x0b\x1b\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top">body</td><td valign="top">:</td><td><div>&lt;cStringIO.StringO object at 0x084F3CC0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cookies</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">session_id_schoolapp</td><td valign="top">:</td><td><div>127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">delimiters</td><td valign="top">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">files</td><td valign="top">:</td><td><div><table><tr><td><div>/schoolApp/static/js/ranp.js</div></td></tr><tr><td><div>/schoolApp/static/js/jquery.js</div></td></tr><tr><td><div>/schoolApp/static/js/knockout-2.2.1.js</div></td></tr><tr><td><div>/schoolApp/static/js/globalize.min.js</div></td></tr><tr><td><div>/schoolApp/static/js/dx.chartjs.js</div></td></tr><tr><td><div>/schoolApp/static/css/calendar.css</div></td></tr><tr><td><div>/schoolApp/static/js/calendar.js</div></td></tr><tr><td><div>/schoolApp/static/js/web2py.js</div></td></tr><tr><td><div>/schoolApp/static/css/web2py.css</div></td></tr><tr><td><div>/schoolApp/static/css/bootstrap.min.css</div></td></tr><tr><td><div>/schoolApp/static/css/bootstrap-responsive.min.css</div></td></tr><tr><td><div>/schoolApp/static/css/bootstrap.min.3.0.css</div></td></tr><tr><td><div>/schoolApp/static/css/bootstrap.3.0.css</div></td></tr><tr><td><div>/schoolApp/static/css/web2py_bootstrap.css</div></td></tr><tr><td><div>/schoolApp/static/css/ranp.css</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">flash</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">generic_patterns</td><td valign="top">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">google_analytics_id</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">headers</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">X-Powered-By</td><td valign="top">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">logo</td><td valign="top">:</td><td><div><a class="brand" href="/schoolApp/default/index.pdf"><b>univhub</b>&trade;&nbsp;</a></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">menu</td><td valign="top">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/schoolApp/default/index.pdf</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>reports</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/schoolApp/school/users.pdf</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">meta</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">author</td><td valign="top">:</td><td><div>ranjith_univhub@gmailcom&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">description</td><td valign="top">:</td><td><div>A School app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">generator</td><td valign="top">:</td><td><div>Univhub</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">keywords</td><td valign="top">:</td><td><div>school, univhub, group</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">models_to_run</td><td valign="top">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^school/\\w+\\.py$</div></td></tr><tr><td><div>^school/admin/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">postprocessing</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_cookie_expires</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_data_name</td><td valign="top">:</td><td><div>session_data_schoolapp</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_file</td><td valign="top">:</td><td><div>&lt;open file &#x27;C:\\web2py\\web2py\\applications\\schoolApp\\sessions\\127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8&#x27;, mode &#x27;rb+&#x27; at 0x07A91A70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_filename</td><td valign="top">:</td><td><div>C:\\web2py\\web2py\\applications\\schoolApp\\sessions\\127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id</td><td valign="top">:</td><td><div>127.0.0.1-e964d04c-e187-4278-bbf3-9be78c2161a8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_name</td><td valign="top">:</td><td><div>session_id_schoolapp</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_locked</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_new</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_storage_type</td><td valign="top">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">status</td><td valign="top">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">title</td><td valign="top">:</td><td><div>Schoolapp</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">view</td><td valign="top">:</td><td><div>school/admin.pdf</div></td></tr></table></div>'
+tRp164
+sS'locals'
+p165
+(dp166
+S'msg'
+p167
+S"'PIL not installed'"
+p168
+sS'self'
+p169
+S'<gluon.contrib.generics.MyFPDF object>'
+p170
+sssS'traceback'
+p171
+S'Traceback (most recent call last):\n  File "/home/mdipierro/make_web2py/web2py/gluon/restricted.py", line 212, in restricted\n  File "C:\\web2py\\web2py\\applications\\schoolApp\\views\\generic.pdf", line 9, in <module>\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/generics.py", line 72, in pdf_from_html\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/generics.py", line 63, in pyfpdf_from_html\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/fpdf/html.py", line 397, in write_html\n  File "HTMLParser.pyc", line 108, in feed\n  File "HTMLParser.pyc", line 148, in goahead\n  File "HTMLParser.pyc", line 269, in parse_starttag\n  File "HTMLParser.pyc", line 325, in handle_startendtag\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/fpdf/html.py", line 270, in handle_starttag\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/fpdf/fpdf.py", line 913, in image\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/fpdf/fpdf.py", line 1642, in _parsejpg\n  File "/home/mdipierro/make_web2py/web2py/gluon/contrib/fpdf/fpdf.py", line 225, in error\nRuntimeError: FPDF error: PIL not installed\n'
+p172
+s.

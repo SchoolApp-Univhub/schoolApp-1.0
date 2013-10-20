@@ -1,0 +1,28 @@
+<div class="{{=thumbnail_class}}">
+	<div class="thumbnail">
+        {{=name}}
+        <input id="attendance_{{=id}}" type="submit" class="btn" value="present" onclick="attendance({{=id}})">
+	</div>
+</div>
+
+
+<script>
+jQuery(document).ready(function(){
+   var width=jQuery('div.thumbnail').css('width');
+   jQuery('div.thumbnail').css('height',width);
+});
+
+$( window ).resize(function() {
+   var width=jQuery('div.thumbnail').css('width');
+   jQuery('div.thumbnail').css('height',width);
+});
+
+function attendance(id){
+    if (document.getElementById("attendance_"+id).value == "present") {
+        document.getElementById("attendance_"+id).value="absent";
+    } else {
+        document.getElementById("attendance_"+id).value="present";
+    }
+}
+
+</script>

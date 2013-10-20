@@ -1,0 +1,2 @@
+auth_user.first_name,auth_user.last_name,auth_user.email,auth_user.password,auth_user.registration_key,auth_user.reset_password_key,auth_user.registration_id,auth_user.school_id,auth_user.user_type,auth_user.zip,auth_user.phone
+Mani,Raj,mani.raj@gmail.com, db.auth_user.password.validate('4711127')[0],,,,1,2,638182,9626588853

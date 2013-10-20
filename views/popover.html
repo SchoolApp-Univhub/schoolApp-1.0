@@ -1,0 +1,80 @@
+<div class="row">
+	<div id="popover-head" class="hide">
+    	Message
+    <div id="popover-content" class="hide">
+			<form class="form-horizontal" name="form-horizontal" role="form">
+            	<div class="form-group">
+                    <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">To:</label>
+                    <p class="msgheader form-control-static">email@example.com</p>
+                </div>
+                <div class="form-group">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            		<textarea rows="8" class="form-control" id="focusedInput" name="focusedInput" placeholder="Enter your message Here..."></textarea>
+                    </div>
+                </div>
+            	<div class="form-group">
+            		<div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
+                        <button type="button" class="btn msg_send" onclick="ajax('message', ['entity'], 'test')">Send</button>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
+                    	<button id="cancelbutton" type="button" class="btn">Cancel</button>
+                    </div>
+                </div>
+            		<input class="id" type="hidden" name="id" value="0">
+            		<input class="entity" type="hidden" name="entity" value="0">
+  			</form>
+	</div>
+</div>
+
+<script>
+jQuery("button.msg_send").onclick(function(){
+      jQuery('div.popover>div.popover-inner>div.popover-content>form.form-horizontal'.submit());
+</script>
+
+<script>
+$(document).ready(function() {
+
+    var $popover = $(".popuplink").popover({
+        placement: 'bottom',
+        html: 'false',
+        container: 'body',
+        title : function() {
+      		return $("#popover-head").html();
+    		},
+        content : function() {
+      		return $("#popover-content").html();
+    		}
+    });
+ 
+	$(document).on("click", function (e) {
+    	var $target = $(e.target),
+        isPopover = $target.is('.popuplink'),
+        inPopover = $target.closest('.popover').length > 0
+		var $cancelButton = document.getElementById('cancelbutton');
+    	if($target==$cancelButton)
+    		$popover.popover('hide');
+    	//hide only if clicked on button or inside popover
+    	if (!isPopover && !inPopover) $popover.popover('hide');
+	});
+	
+	$(document).keydown(function(e){
+   		if (e.keyCode === 27)
+      		$popover.popover('hide');
+	});
+	
+	var $ActivePopover = "None";
+	
+	$('.popuplink').on('show.bs.popover', function (e) {
+ 		if ($ActivePopover=="None")
+ 			$ActivePopover=$(e.target);
+        else{
+ 			$ActivePopover.popover('hide');
+        	$ActivePopover=$(e.target)
+        }
+	});
+	
+	$('.popuplink').on('hide.bs.popover', function (e) {
+  // do something…
+	});
+});
+</script>

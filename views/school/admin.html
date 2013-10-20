@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+{{include 'search.html'}}
+{{include 'serversearch.html'}}
+{{action=URL('school','classes')}}
+{{actionreport=URL('school','classreport')}}
+<div class="row">
+    {{for record in records:}}
+    	{{id=record.id}}
+    	{{name=record.class_nm}}
+    	{{type=class_type}}
+    	{{include 'thumbnail.html'}}
+    {{pass}}
+<div>
+    <div id="test"></div>
+{{include 'form.html'}}
+{{include 'popover.html'}}
+{{include 'javascript.html'}}

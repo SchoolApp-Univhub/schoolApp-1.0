@@ -1,0 +1,63 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+{{include 'search.html'}}
+{{action="/schoolAppMysql/school/attendance"}}
+{{actionreport="/schoolAppMysql/school/attendancereport"}}
+
+{{block left_sidebar}} 
+
+<div id="left_sidebar">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        Select date: <br/><input type="text" id="datepicker" />   
+
+		<h2>Sections</h2>
+        {{for section in sections:}}
+    		{{id=section.id}}
+    		{{classid=section.class_id}}
+    		{{name=section.section_nm}}
+    		{{type=section_type}}
+        <button type="submit" class="btn" onclick="jQuery('#mainformsectionid').val('{{=id}}'); jQuery('#mainformclassid').val('{{=classid}}'); jQuery('#mainform').submit()">{{=name}}</button>
+            <br/>
+            <br/>
+        {{pass}}
+    </div>
+</div>
+{{end}}
+
+<h2>Students</h2>
+<div class="row">
+    {{for student in students:}}
+    	{{id=student.id}}
+    	{{name=student.first_name+" "+student.last_name}}
+    	{{type=user_type}}
+    	
+    	{{include 'attendancethumbnail.html'}}
+		
+    	
+    {{pass}}
+<div>
+<div class = "row">
+	<button type="button" class="input-medium col-xs-2 col-sm-2 col-md-2 col-lg-2 btn" id="save" onclick="markattendance()">Save</button>
+	<button type="button" class="input-medium col-xs-4 col-sm-4 col-md-4 col-lg-4 btn" id="notify">Notify</button>
+</div>
+<script>
+
+$(function() {
+    $( "#datepicker" ).datepicker();
+});
+
+    function markattendance() {
+        var ids="";
+        $('input[value="absent"]').each(function() {
+        	str=this.id;
+        	ids = ids+str.substring(str.indexOf("_")+1);
+        });
+        ids=ids;
+        console.log("The ids absent are:"+ids);
+        ajax('saveattendance', 'ids')
+    }
+
+</script>
+
+{{include 'attendanceform.html'}}
+{{include 'popover.html'}}

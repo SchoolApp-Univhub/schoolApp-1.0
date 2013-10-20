@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+{{include 'search.html'}}
+{{action="/schoolApp/school/user"}}
+{{actionreport="/schoolApp/school/userreport"}}
+<div class="row">
+    {{for record in records:}}
+    	{{id=record.id}}
+    	{{name=record.section_nm}}
+    	{{type=section_type}}
+    	{{include 'thumbnail.html'}}
+    {{pass}}
+<div>
+{{include 'form.html'}}
+{{include 'popover.html'}}

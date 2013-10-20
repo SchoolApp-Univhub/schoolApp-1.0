@@ -1,0 +1,20 @@
+{{if auth.is_logged_in():}}
+ <form class="navbar-search" id="test" action="/schoolApp/school/user">
+ <input type="text" id="searchuser" name="searchuser" placeholder="Search Users" autocomplete="off"/>
+ <input type="text" id="searchuserid" name="searchuserid" hidden/>
+ <div style="position: absolute;" id="suggestions"
+      class="suggestions">
+ </div>
+</form>
+
+
+<style>
+#suggestions { position: relative; }
+.suggestions { background: white; border: solid 1px #55A6C8; }
+.suggestions DIV { padding: 2px 4px 2px 4px; }
+</style>
+<script>
+jQuery("#searchuser").keyup(function(){
+      ajax('searchusers', ['searchuser'], 'suggestions')});
+</script>
+{{pass}}

@@ -1,0 +1,23 @@
+{{extend 'layout.html'}}
+<div class="row">
+    {{for record in school_records:}}
+    	<div class="col-sm-3 col-md-3 col-lg-3">
+            <a class="thumbnail" onclick="jQuery('#{{=record.id}}').submit()">
+                	{{=record}}
+                <form id ={{=record.id}} action="/schoolApp/user/users">
+               	</form>
+            </a>
+    	</div>
+    {{pass}}
+<div>
+
+<script>
+jQuery(document).ready(function(){
+   var test=jQuery('.thumbnail').css('width');
+    console.log("The test variable is:"+test);
+   jQuery('.thumbnail').css('height',test);
+   jQuery('.thumbnail>input').css('height',test);
+   jQuery('.thumbnail>input').css('width',test);
+   jQuery('.one').click(function(){jQuery('.two').slideToggle()});
+});
+</script>

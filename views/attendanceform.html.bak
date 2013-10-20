@@ -1,0 +1,4 @@
+<form id="mainform" action="{{=action}}">
+        <input id="mainformclassid" type="hidden" name="class_id" value="None"/>
+        <input id="mainformsectionid" type="hidden" name="section_id" value="None"/>
+</form>

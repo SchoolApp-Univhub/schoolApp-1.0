@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+{{include 'search.html'}}
+{{action=URL('school','user')}}
+{{actionreport=URL('school','userreport')}}
+<h2>Class Teacher</h2>
+<div class="row">
+    {{id=class_teacher.id}}
+    {{name=class_teacher.first_name+" "+class_teacher.last_name}}
+    {{type=user_type}}
+    {{include 'thumbnail.html'}}
+</div>
+
+<div class="clearfix"></div>
+
+<h2>Students</h2>
+<div class="row">
+    {{for student in students:}}
+    	{{id=student.id}}
+    	{{name=student.first_name+" "+student.last_name}}
+    	{{type=user_type}}
+    	{{include 'thumbnail.html'}}
+    {{pass}}
+<div>
+
+{{include 'form.html'}}
+{{include 'popover.html'}}
+{{include 'javascript.html'}}

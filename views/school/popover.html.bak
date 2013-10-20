@@ -1,0 +1,74 @@
+{{extend 'layout.html'}}
+<div class="row">
+    {{for record in records:}}
+    	<div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="thumbnail">
+                <a href="#" onclick="jQuery('#{{=record.id}}').submit()">{{=record.section_nm}}</a>
+                <a class="popuplink" href="#" onclick="jQuery('#sd>input').attr('value','{{=record.section_nm}}')" >Send Message</a>
+                <form id={{=record.id}} action="/schoolApp/school/sections">
+                    <input type="hidden" name="id" value={{=record.id}}>
+                </form>
+            </div>
+    	</div>
+    {{pass}}
+</div>
+
+
+
+<div class="row">
+	<div id="popover-head" class="hide">
+    	Message
+    <div id="popover-content" class="hide">
+			<form id="sd">
+            	<input type="text" name="To" value="default" readonly>
+  			</form>
+        <textarea rows="4" cols="50" form="sd" >Enter your message Here...</textarea>
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+
+    var $popover = $(".popuplink").popover({
+        placement: 'bottom',
+        html: 'true',
+        container: 'body',
+        title : function() {
+      		return $("#popover-head").html();
+    		},
+        content : function() {
+      		return $("#popover-content").html();
+    		}
+    });
+ 
+	$(document).on("click", function (e) {
+    	var $target = $(e.target),
+        isPopover = $target.is('.popuplink'),
+        inPopover = $target.closest('.popover').length > 0
+
+    	//hide only if clicked on button or inside popover
+    	if (!isPopover && !inPopover) $popover.popover('hide');
+	});
+	
+	$(document).keydown(function(e){
+   		if (e.keyCode === 27)
+      		$popover.popover('hide');
+	});
+	
+	var $ActivePopover = "None";
+	
+	$('.popuplink').on('show.bs.popover', function (e) {
+ 		if ($ActivePopover=="None")
+ 			$ActivePopover=$(e.target);
+        else{
+ 			$ActivePopover.popover('hide');
+        	$ActivePopover=$(e.target)
+        }
+	});
+	
+	$('.popuplink').on('hide.bs.popover', function (e) {
+  // do something…
+	});
+});
+</script>
