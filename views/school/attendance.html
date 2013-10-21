@@ -4,18 +4,21 @@
 {{action="/schoolAppMysql/school/attendance"}}
 {{actionreport="/schoolAppMysql/school/attendancereport"}}
 
-{{block left_sidebar}} 
+{{block left_sidebar}}
 
 <div id="left_sidebar">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        Select date: <br/><input type="text" id="datepicker" />   
+        {{=INPUT(_name='Workingday',_type='date')}}
+        <input name="classid" type="hidden"></input>
+    <input name="sectionid" type="hidden"></input>
+        
 
 		<h2>Sections</h2>
         {{for section in sections:}}
     		{{id=section.id}}
     		{{classid=section.class_id}}
-    		{{name=section.section_nm}}
-    		{{type=section_type}}
+        	{{name=section.section_nm}}
+
         <button type="submit" class="btn" onclick="jQuery('#mainformsectionid').val('{{=id}}'); jQuery('#mainformclassid').val('{{=classid}}'); jQuery('#mainform').submit()">{{=name}}</button>
             <br/>
             <br/>
@@ -25,38 +28,68 @@
 {{end}}
 
 <h2>Students</h2>
-<div class="row">
+<div class="row" id="row">
     {{for student in students:}}
-    	{{id=student.id}}
-    	{{name=student.first_name+" "+student.last_name}}
+    	{{studentid=student.id}}
+    	{{name=student.first_name + " " + student.last_name}}
     	{{type=user_type}}
-    	
+
     	{{include 'attendancethumbnail.html'}}
-		
-    	
+
+
     {{pass}}
 <div>
 <div class = "row">
 	<button type="button" class="input-medium col-xs-2 col-sm-2 col-md-2 col-lg-2 btn" id="save" onclick="markattendance()">Save</button>
 	<button type="button" class="input-medium col-xs-4 col-sm-4 col-md-4 col-lg-4 btn" id="notify">Notify</button>
 </div>
+
 <script>
 
-$(function() {
-    $( "#datepicker" ).datepicker();
-});
+    jQuery(document).ready(function(){
+       var width=jQuery('div.thumbnail').css('width');
+       jQuery('div.thumbnail').css('height',width);
+    });
 
-    function markattendance() {
-        var ids="";
-        $('input[value="absent"]').each(function() {
-        	str=this.id;
-        	ids = ids+str.substring(str.indexOf("_")+1);
-        });
-        ids=ids;
-        console.log("The ids absent are:"+ids);
-        ajax('saveattendance', 'ids')
+    $( window ).resize(function() {
+       var width=jQuery('div.thumbnail').css('width');
+       jQuery('div.thumbnail').css('height',width);
+    });
+
+    function TogglePresent(obj){
+        var $obj = jQuery(obj);
+        if ($obj.data('present') === true) {
+        	$obj.data('present', false);
+        }
+        else {
+        	$obj.data('present', true);
+            console.log("stued:" + $obj.data('studentid') + "present??" + $obj.data('present'));
+        }
     }
 
+    function markattendance() {
+        var absenteeslist = new Array();
+        var i = 0;
+
+        $('.thumbnail.attendance').each(function() {
+            var $studentdiv = jQuery(this);
+            if (!$studentdiv.data('present')) {
+            	console.log("present??" + $studentdiv.data('present'));
+        		absenteeslist[i++] = $studentdiv.data('studentid');
+            }
+        });
+        
+       	if(!confirm("{{=T('Sure you want to mark the students as absent?')}}"+absenteeslist))
+      		return "false";
+       
+
+        console.log("The ids absent are:" + absenteeslist.join('/'));
+        $.ajax({
+        	type: "POST",
+        	url: "/schoolAppMysql/school/saveattendance",
+        	data: {'absenteeslistIDs':absenteeslist}
+		}).done;
+    }
 </script>
 
 {{include 'attendanceform.html'}}
