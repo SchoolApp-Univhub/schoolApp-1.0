@@ -2,7 +2,8 @@
 	<div id="popover-head" class="hide">
     	Message
     <div id="popover-content" class="hide">
-			<form class="form-horizontal" name="form-horizontal" role="form">
+        
+        <form class="msg-form form-horizontal" name="form-horizontal" role="form" action="message">
             	<div class="form-group">
                     <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">To:</label>
                     <p class="msgheader form-control-static">email@example.com</p>
@@ -14,10 +15,10 @@
                 </div>
             	<div class="form-group">
             		<div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
-                        <button type="button" class="btn msg_send" onclick="ajax('message', ['entity'], 'test')">Send</button>
+                        <button type="submit" class="btn msg_send">Send</button>
                     </div>
-                    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
-                    	<button id="cancelbutton" type="button" class="btn">Cancel</button>
+            		<div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
+                        <button type="button" class="btn msg-cancel">Cancel</button>
                     </div>
                 </div>
             		<input class="id" type="hidden" name="id" value="0">
@@ -27,14 +28,9 @@
 </div>
 
 <script>
-jQuery("button.msg_send").onclick(function(){
-      jQuery('div.popover>div.popover-inner>div.popover-content>form.form-horizontal'.submit());
-</script>
-
-<script>
+var $ActivePopover = "None";
 $(document).ready(function() {
-
-    var $popover = $(".popuplink").popover({
+    $(".popuplink").popover({
         placement: 'bottom',
         html: 'false',
         container: 'body',
@@ -45,25 +41,12 @@ $(document).ready(function() {
       		return $("#popover-content").html();
     		}
     });
- 
-	$(document).on("click", function (e) {
-    	var $target = $(e.target),
-        isPopover = $target.is('.popuplink'),
-        inPopover = $target.closest('.popover').length > 0
-		var $cancelButton = document.getElementById('cancelbutton');
-    	if($target==$cancelButton)
-    		$popover.popover('hide');
-    	//hide only if clicked on button or inside popover
-    	if (!isPopover && !inPopover) $popover.popover('hide');
-	});
-	
 	$(document).keydown(function(e){
-   		if (e.keyCode === 27)
-      		$popover.popover('hide');
+        if (e.keyCode == 27){
+      		$('.popuplink').popover('hide');
+      		$ActivePopover = "None";
+        }
 	});
-	
-	var $ActivePopover = "None";
-	
 	$('.popuplink').on('show.bs.popover', function (e) {
  		if ($ActivePopover=="None")
  			$ActivePopover=$(e.target);
@@ -72,9 +55,53 @@ $(document).ready(function() {
         	$ActivePopover=$(e.target)
         }
 	});
-	
 	$('.popuplink').on('hide.bs.popover', function (e) {
-  // do something…
-	});
+    	$ActivePopover="None";
+    });
+});	
+
+$(document).on("click", function (e) {
+   	$(".msg-form").unbind("submit");
+	var $target = $(e.target);
+	isPopover = $target.is('.popuplink');
+	inPopover = $target.closest('.popover').length > 0;
+
+    if(inPopover){
+        if($target.is('.msg-cancel')){
+        	$('.popuplink').popover('hide');
+        	$ActivePopover = "None";
+        }
+        else{
+			$( ".msg-form" ).submit(function( event ) {
+        		$('.popuplink').popover('hide');
+        		$ActivePopover = "None";
+
+				event.preventDefault();
+				id = $(this).find( "input[name='id']" ).val();
+        		entity = $(this).find( "input[name='entity']" ).val();
+        		msg_content = $(this).find("textarea").val();
+        		url = $(this).attr( "action" );
+console.log("id="+id);
+console.log("entity="+entity);
+console.log("content="+msg_content);
+                //Send the data using post
+        		var posting = $.post( url, { id: id,entity: entity, msg_content: msg_content } );
+				// Put the results in a div
+				posting.done(function( data ) {
+console.log("return data="+data);
+					$( ".flash" ).empty().append( data );
+					$(".flash").css('display','block');
+				});
+				$(".msg-form").unbind("submit");
+			});
+		}
+    }
+	else if(isPopover){
+        //Dont do anything. Bootstrap will handle it and show the popover
+    }
+    else{
+        $('.popuplink').popover('hide');
+        $ActivePopover = "None";
+    }
 });
 </script>

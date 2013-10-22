@@ -14,9 +14,6 @@ def index():
     else:
         redirect(URL('school','user', vars=dict(function='index')))
 
-def message():
-    name=request.vars.entity
-    return name
 def holiday():
     grid = SQLFORM.smartgrid(db.holiday)
     return locals()
@@ -77,7 +74,42 @@ def user():
         request.vars.id=auth.user.id
     student_profile=db(db.auth_user.id==request.vars.id).select().first()
     return dict(student_profile=student_profile)
+
+@auth.requires_login()
+def message():
+    entity_id=request.vars.id
+    count=0
+    success=1
+    retMsg="Message Scheduled"
+    entity_type=request.vars.entity
+    if auth.has_membership(role=student_str) and (entity_type == class_type or entity_type == section_type):
+        retMsg="Sending Message Failed"
+        success=0
+    elif entity_type == class_type:
+        count = db((db.class_tbl.id==entity_id) & (db.class_tbl.school_id==auth.user.school_id)).count()
+        if count != 1:
+            success=0
+            retMsg="Sending Message Failed"
+    elif entity_type == section_type:
+        count = db((db.section_tbl.id==entity_id) & (db.section_tbl.class_id==db.class_tbl.id) & (db.class_tbl.school_id==auth.user.school_id)).count()
+        if count != 1:
+            success=0
+            retMsg="Sending Message Failed"   
+    elif entity_type == user_type:
+        count = db((db.auth_user.id==entity_id) & (db.auth_user.school_id==auth.user.school_id)).count()
+        if count != 1:
+            success=0
+            retMsg="Sending Message Failed"
+    else:
+        success=0
+        retMsg="Unhandled"
+    if success:
+        mail_content=request.vars.msg_content
+        status="pending"
+        db.mail_queue.insert(entity_id=entity_id, entity_type=entity_type, mail_content=mail_content,status=status)
+    return retMsg
     
+            
 @auth.requires_login()    
 def userreport():
     if not request.vars.id:

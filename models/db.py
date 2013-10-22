@@ -103,6 +103,14 @@ db.define_table('holiday',
     Field('holiday','date'),
     Field('description','string')
     )
+    
+db.define_table('mail_queue',
+    Field('entity_id', 'integer'),
+    Field('entity_type', 'integer'),
+    Field('mail_subject', 'string'),
+    Field('mail_content', 'text'),
+    Field('status', 'string')
+    )
 
 ## configure email
 mail = auth.settings.mailer

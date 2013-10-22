@@ -4,3 +4,4 @@
 databases/*
 errors/*
 sessions/*
+progress.log
