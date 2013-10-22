@@ -1,0 +1,6 @@
+*.bak
+*.pyc
+*.ini
+databases/*
+errors/*
+sessions/*
