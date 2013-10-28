@@ -1,9 +1,12 @@
 # coding: utf8
 # try something like
+def test():
+    return dict()
 @auth.requires_login()
 def index():
     if auth.has_membership(role=admin_str):
         session.class_id=0
+        session.subgroup_id=0
         session.section_id=0
         session.serversearch=1
         redirect(URL('school','admin', vars=dict(function='index')))
@@ -13,10 +16,6 @@ def index():
         redirect(URL('school','teacher', vars=dict(function='index')))
     else:
         redirect(URL('school','user', vars=dict(function='index')))
-
-def holiday():
-    grid = SQLFORM.smartgrid(db.holiday)
-    return locals()
                                               
 def users():
     sectionlist = []
@@ -32,8 +31,14 @@ def classes():
         redirect(URL('school','index'))
     session.class_id=request.vars.id
     section_records=db(db.section_tbl.class_id == session.class_id).select()
-    return dict(records=section_records)
-    
+    subgroup_records=db(db.subjectgroup_tbl.class_id==session.class_id).select()
+    return dict(records=section_records, subgroup_records=subgroup_records)
+
+@auth.requires_login()
+def subgroup():
+    if not IsValidSubGroup(request.vars.id):
+        redirect(URL('school','index'))
+    return
     
 @auth.requires_login()
 def classreport():
@@ -46,7 +51,7 @@ def sections():
     if not IsValidSection(request.vars.id):
         redirect(URL('school','index'))
     session.section_id=request.vars.id
-    class_teacher=db((db.section_tbl.id==request.vars.id) & (db.section_tbl.class_teacher_id==db.teacher_tbl.id) & (db.teacher_tbl.user_id==db.auth_user.id)).select(db.auth_user.id,db.auth_user.first_name,db.auth_user.last_name).first()
+    class_teacher=db((db.section_tbl.id==request.vars.id) & (db.section_tbl.class_teacher==db.teacher_tbl.id) & (db.teacher_tbl.user_id==db.auth_user.id)).select(db.auth_user.id,db.auth_user.first_name,db.auth_user.last_name).first()
 
     students=db((db.student.section_id==request.vars.id) &(db.student.user_id==db.auth_user.id)).select(db.auth_user.id,db.auth_user.first_name,db.auth_user.last_name)    
     return dict(class_teacher=class_teacher,students=students)
@@ -65,7 +70,7 @@ def admin():
 
 @auth.requires(auth.has_membership(role=teacher_str))
 def teacher():
-    class_records=db((db.teacher_tbl.user_id==auth.user.id) & (db.teacher_tbl.id==db.section_tbl.class_teacher_id)).select(db.section_tbl.id,db.section_tbl.section_nm)
+    class_records=db((db.teacher_tbl.user_id==auth.user.id) & (db.teacher_tbl.id==db.section_tbl.class_teacher)).select(db.section_tbl.id,db.section_tbl.section_nm)
     return dict(records=class_records)
 
 @auth.requires_login()    
@@ -107,6 +112,7 @@ def message():
         mail_content=request.vars.msg_content
         status="pending"
         db.mail_queue.insert(entity_id=entity_id, entity_type=entity_type, mail_content=mail_content,status=status)
+        mail.send(to=['ranjith2041@gmail.com'],subject='hello', message='hi there')
     return retMsg
     
             
@@ -118,18 +124,29 @@ def userreport():
 
 @auth.requires_login()    
 def attendance():
-    if not request.vars.class_id:
-        request.vars.class_id=1;
-    if not request.vars.section_id:
-        request.vars.section_id=1;
-    sections=db(db.section_tbl.class_id==request.vars.class_id).select(db.section_tbl.class_id,db.section_tbl.id,db.section_tbl.section_nm)
-    students=db((db.section_tbl.class_id==request.vars.class_id) & (db.section_tbl.id==request.vars.section_id) & (db.student.section_id==db.section_tbl.id) &(db.student.user_id==db.auth_user.id)).select(db.auth_user.id,db.auth_user.first_name,db.auth_user.last_name)    
-    return dict(sections=sections,students=students)
+    from collections import defaultdict
+    rows=db(db.section_tbl.class_id==db.class_tbl.id).select(db.class_tbl.class_nm.with_alias('class_nm'),db.section_tbl.class_id.with_alias('class_id'),db.section_tbl.id.with_alias('id'),db.section_tbl.section_nm.with_alias('section_nm'))
+    sections=[[r.class_nm,r.class_id,r.id,r.section_nm] for r in rows]
+    classsection = defaultdict(list)
+    for class_nm, classid, sectionid, sectionname in sections: 
+        classsection[(classid,class_nm)].append({"sectionid":int(sectionid),"sectionname":str(sectionname)})
+    classsection=[{"classid":int(classid[0]),"classname":str(classid[1]),"section":sections} for classid,sections in classsection.items()]       
+    print classsection
+    return dict(classsection=XML(classsection))
+    
+def getstudents():
+    sectionid=request.post_vars['sectionid']
+    students=db((db.section_tbl.id==sectionid) & (db.student.section_id==db.section_tbl.id) &(db.student.user_id==db.auth_user.id)).select(db.auth_user.id,db.auth_user.first_name,db.auth_user.last_name)    
+    return response.json(students)
+
+
 
 def saveattendance():
-        db.attendance.insert(school_id=1)
+        absentees = request.post_vars['absenteeslistIDs[]'];
+        db.attendance.insert(school_id=1,AbsenteesListFN=absentees,AbsenteesListAN=absentees)
         db.commit()
-        response.flash = T("Success")
+        response.message = T("Success")
+
 
 
 def searchusers():
@@ -144,6 +161,13 @@ def searchusers():
     
 def IsValidClass(record_id):
     record=db((db.class_tbl.class_id==record_id) & (db.class_tbl.school_id==auth.user.school_id)).count()
+    if record==1:
+        return True
+    else:
+        return False
+
+def IsValidSubGroup(record_id):
+    record=db((db.subjectgroup_tbl.id==record_id) & (db.subjectgroup_tbl.class_id==session.class_id)).count()
     if record==1:
         return True
     else:

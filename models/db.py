@@ -79,12 +79,28 @@ db.define_table('class_tbl',
     format = '%(class_nm)s'
     )
     
+db.define_table('subject_class',
+    Field('class_id', 'reference class_tbl'),
+    Field('subject_id', 'reference subject_bs'),
+    format = '%(subject_id)s'
+    )
+
+db.define_table('subjectgroup_tbl',
+    Field('class_id', 'reference class_tbl'),
+    Field('subgroup_name', 'string'),
+    format = '%(subgroup_name)s'
+    )
+    
+db.define_table('subjectgroup_subject_tbl',
+    Field('subgroup_id', 'reference subjectgroup_tbl'),
+    Field('subject_id', 'reference subject_class')
+    )
+
 db.define_table('section_tbl',
     Field('class_id', 'reference class_tbl'),
-    Field('section_id', 'reference section_bs'),
     Field('section_nm', 'string'),
-    Field('class_teacher_id', 'reference teacher_tbl'),
-    format = '%(class_id)s'
+    Field('class_teacher', 'reference teacher_tbl'),
+    format = '%(section_nm)s'
     )
     
 db.define_table('student',
@@ -98,12 +114,6 @@ db.define_table('attendance',
     Field('AbsenteesList','list:integer')
     )
 
-db.define_table('holiday',
-    Field('school_id', 'reference school_bs'),
-    Field('holiday','date'),
-    Field('description','string')
-    )
-    
 db.define_table('mail_queue',
     Field('entity_id', 'integer'),
     Field('entity_type', 'integer'),
@@ -114,9 +124,9 @@ db.define_table('mail_queue',
 
 ## configure email
 mail = auth.settings.mailer
-mail.settings.server = 'logging'
-mail.settings.sender = 'ranjith2041@gmail.com'
-mail.settings.login = 'ranjith:Pp11134711133@'
+mail.settings.server = 'smtp.gmail.com:587'
+mail.settings.sender = 'schoolApp.univhub@gmail.com'
+mail.settings.login = 'schoolApp.univhub:schoolApp_univhub'
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False

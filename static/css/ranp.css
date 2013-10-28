@@ -46,6 +46,11 @@ padding-right: 1%;
 padding-left: 1%;
 padding-bottom: 1%;
 padding-top: 1%;
+/*margin-right: 1%;
+margin-left: 1%;
+margin-bottom: 1%;
+margin-top: 1%;
+*/
 }
 
 div.thumbnail:hover, div.thumbnail:focus {
@@ -60,8 +65,25 @@ div.thumbnail{
 background-color: #EFF0F5;
 height: 164px;
 }
+/*
+@media (min-width: 768px){
+	div.thumbnail{
+		height: 221px;
+	}
+}
 
+@media (min-width: 992px){
+	div.thumbnail{
+		height: 206px;
+	}
+}
 
+@media (min-width: 1200px){
+	div.thumbnail{
+		height: 164px;
+	}
+}
+*/
 @media (min-width: 768px){
   .popover.bottom {
     max-width: 700px;
@@ -118,6 +140,26 @@ margin-top:0px;
 margin-bottom:0px;
 }
 
+
+div.thumbnail>.name.user{
+border-bottom: none;
+height:40%;
+}
+
+div.thumbnail.user{
+background-color: #d9534f;
+}
+
+div.thumbnail.user.present{
+background-color: #5cb85c;
+}
+
+
+
+div.thumbnail>.userimg{
+height:60%;
+}
+
 div.thumbnail>div.row{
 height:80%;
 }
@@ -152,8 +194,12 @@ padding-left:5%;
 float:none;
 }
 
-.thumbnail:after{
-	content: "";
-	display: block;
-	padding-top: 100%; 	/* initial ratio of 1:1*/
+.legend-item{
+display: inline-block;
+padding-right:3px;
+}
+
+.legend-item>.label{
+padding: 0.7em 1.0em 0.7em;
+display:inline-block;
 }
