@@ -4,17 +4,15 @@
 {{action=URL('school','attendance')}}
 
 {{block left_sidebar}}
-
 <div id="left_sidebar">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
         {{=INPUT(_name='Workingday',_type='date')}}
-        <input name="classid" type="hidden"></input>
-    <input name="sectionid" type="hidden"></input>
-        
-
+        <input name="classid" type="hidden"/>
+		<input name="sectionid" type="hidden"/>
     </div>
 </div>
 {{end}}
+
 
 <div class="btn-group">
 	<button class="btn">Classes</button>
@@ -36,19 +34,40 @@
 </div>
 
 
-<h2>Students</h2>
+<h4>Students</h4>
+
 <div class="row pull-right">
     <div class="legend-item"><span class="label label-success"></span> Present</div>
     <div class="legend-item"><span class="label label-danger"></span> Absent</div>
 </div>
+
 <div class="row" id="students">
     
 </div>
+
 <div class = "row">
-	<button type="button" class="input-medium col-xs-2 col-sm-2 col-md-2 col-lg-2 btn" id="save" onclick="markattendance()">Save</button>
-	<button type="button" class="input-medium col-xs-4 col-sm-4 col-md-4 col-lg-4 btn" id="notify">Notify</button>
+	<button type="button" class="btn btn-default" id="save" onclick="markattendance()">Save</button>
+	<button type="button" class="btn btn-default" id="notify">Notify</button>
 </div>
 
+  <div class="modal fade" id="modelConfirm" role="dialog" tabindex='-1' data-keyboard="true" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Absentees List</h4>
+        </div>
+        <div class="modal-body">
+          body
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-primary">Confirm</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  
 <script>
 	var classes = {{=classsection}};
     $( document ).ready(function() {	
@@ -103,7 +122,7 @@
             for(index=0; index<data.length; index++){
                 id=data[index].id;
                 name=data[index].first_name+" "+data[index].last_name;
-                present=1;
+                present=0;
                 thumbnaildiv = add_thumbnail(id, name, present, image, element);
             }
 		});
@@ -112,26 +131,29 @@
     
     function markattendance() {
         var absenteeslist = new Array();
-        var i = 0;
-
-        $('.thumbnail.attendance').each(function() {
-            var $studentdiv = jQuery(this);
-            if (!$studentdiv.data('present')) {
-            	console.log("present??" + $studentdiv.data('present'));
-        		absenteeslist[i++] = $studentdiv.data('studentid');
+        absenteeslist.push(['userId', 'Name']);
+        
+        $('.user-box').each(function() {
+            if (!$(this).data('present')) {
+            	console.log("id=" + $(this).data('id')+". absent");
+        		absenteeslist.push([$(this).data('id'), $(this).find('.name').text()]);
             }
         });
         
-       	if(!confirm("{{=T('Sure you want to mark the students as absent?')}}"+absenteeslist))
-      		return "false";
-       
+        console.log("total absentees="+(absenteeslist.length-1));
 
-        console.log("The ids absent are:" + absenteeslist.join('/'));
+        table=create_table(absenteeslist);
+        $('#modelConfirm').find('.modal-body').empty();
+        $('#modelConfirm').find('.modal-body').text("Total Absentees = "+(absenteeslist.length-1));
+        $('#modelConfirm').find('.modal-body').append($(table));
+       	$('#modelConfirm').modal('show');
+        /*
         $.ajax({
         	type: "POST",
-        	url: "/schoolAppMysql/school/saveattendance",
+			url: "{{=URL('school','saveattendance')}}",
         	data: {'absenteeslistIDs':absenteeslist}
 		}).done;
+*/
     }
 </script>
 
