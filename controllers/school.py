@@ -142,10 +142,17 @@ def getstudents():
 
 
 def saveattendance():
-        absentees = request.post_vars['absenteeslistIDs[]'];
-        db.attendance.insert(school_id=1,AbsenteesListFN=absentees,AbsenteesListAN=absentees)
-        db.commit()
-        response.message = T("Success")
+    retMsg = T("Success")
+    message = request.post_vars['message'];
+    print message
+    if message == 'true':
+        retMsg="Message yes"
+    else:
+        retMsg="Message No"
+    absentees = request.post_vars['absenteeslistIDs[]'];
+    #db.attendance.insert(school_id=1,AbsenteesListFN=absentees,AbsenteesListAN=absentees)
+    #db.commit()
+    return retMsg
 
 
 

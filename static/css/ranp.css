@@ -212,3 +212,7 @@ display:inline-block;
 overflow: auto;
 overflow-y: auto;
 }
+
+label {
+font-weight: normal;
+}

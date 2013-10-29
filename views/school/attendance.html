@@ -44,10 +44,12 @@
 <div class="row" id="students">
     
 </div>
-
 <div class = "row">
-	<button type="button" class="btn btn-default" id="save" onclick="markattendance()">Save</button>
-	<button type="button" class="btn btn-default" id="notify">Notify</button>
+    <input id="message" type="checkbox"/>
+    <label>Send Message</label>
+</div>
+<div class = "row">
+	<button type="button" class="btn btn-default" id="save" onclick="markAttendance()">Save</button>
 </div>
 
   <div class="modal fade" id="modelConfirm" role="dialog" tabindex='-1' data-keyboard="true" data-backdrop="static">
@@ -62,7 +64,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-          <button type="button" class="btn btn-primary">Confirm</button>
+          <button type="button" class="btn btn-primary" id="confirm">Confirm</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -70,9 +72,19 @@
   
 <script>
 	var classes = {{=classsection}};
+    var absenteeslist = new Array();
+    
     $( document ).ready(function() {	
 		$(document).on("click", function (e) {
-    		student_togglepresence($(e.target))
+            
+            if( $(e.target).closest('.user-box') ){
+    			student_togglepresence($(e.target));
+            }
+            
+            if ( $(e.target).is( "#confirm" )){
+            	saveAttendance();
+            }
+            
     	});    	
     	
     	console.log( "ready!" );
@@ -129,8 +141,8 @@
     }
 
     
-    function markattendance() {
-        var absenteeslist = new Array();
+    function markAttendance() {
+        absenteeslist.length=0;
         absenteeslist.push(['userId', 'Name']);
         
         $('.user-box').each(function() {
@@ -142,19 +154,37 @@
         
         console.log("total absentees="+(absenteeslist.length-1));
 
-        table=create_table(absenteeslist);
         $('#modelConfirm').find('.modal-body').empty();
         $('#modelConfirm').find('.modal-body').text("Total Absentees = "+(absenteeslist.length-1));
-        $('#modelConfirm').find('.modal-body').append($(table));
+        if((absenteeslist.length-1)){
+        	table=create_table(absenteeslist);
+        	$('#modelConfirm').find('.modal-body').append($(table));
+        }
        	$('#modelConfirm').modal('show');
-        /*
+    }
+    
+    function saveAttendance(element) {
+        console.log("closing modal and saving Attendance");
+        var absenteesIds = new Array();
+        
+        $('#modelConfirm').modal('hide');
+        
+        for(count=1; count<absenteeslist.length; count++){ //count starts from one since first entry contains the header.
+        	absenteesIds.push(absenteeslist[count][0]);
+        }
+        
+        message=$('#message').prop('checked');
+        console.log("send message="+message);
+        
         $.ajax({
         	type: "POST",
 			url: "{{=URL('school','saveattendance')}}",
-        	data: {'absenteeslistIDs':absenteeslist}
-		}).done;
-*/
-    }
+            data: {'absenteeslistIDs':absenteesIds,'message':message}
+        }).done(function(data){
+            console.log(data);
+            flash_message(data);
+		});
+	}
 </script>
 
 {{include 'attendanceform.html'}}

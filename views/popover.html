@@ -89,8 +89,7 @@ console.log("content="+msg_content);
 				// Put the results in a div
 				posting.done(function( data ) {
 console.log("return data="+data);
-					$( ".flash" ).empty().append( data );
-					$(".flash").css('display','block');
+					flash_message(data);
 				});
 				$(".msg-form").unbind("submit");
 			});
