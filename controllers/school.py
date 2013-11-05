@@ -1,7 +1,20 @@
 # coding: utf8
 # try something like
-def test():
-    return dict()
+def attendance():
+    from collections import defaultdict
+    rows=db().select(db.class_tbl.class_nm.with_alias('class_nm'),db.class_tbl.id.with_alias('class_id'),db.section_tbl.id.with_alias('id'),db.section_tbl.section_nm.with_alias('section_nm'),db.student.id.with_alias('studentid'),db.auth_user.first_name.with_alias('firstname'),db.auth_user.last_name.with_alias('lastname'),left=[db.section_tbl.on(db.section_tbl.class_id==db.class_tbl.id),db.student.on(db.student.section_id==db.section_tbl.id),db.auth_user.on(db.student.user_id==db.auth_user.id)])
+    print rows
+    sections=[[r.class_nm,r.class_id,r.id,r.section_nm,r.studentid,r.firstname,r.lastname] for r in rows]
+    classsection = defaultdict(list)
+    classsection1 = defaultdict(list)
+    for class_nm, classid, sectionid, sectionname,studentid,firstname,lastname in sections: 
+        classsection[classid,class_nm,sectionid,sectionname].append({"studentid":int(studentid if studentid else 0),"firstname":str(firstname),"lastname":str(lastname)})
+    for classid,students in classsection.items():
+        classsection1[classid[0],classid[1]].append({"sectionid":int(classid[2] if classid[2] else 0),"sectionname":str(classid[3]),"students":students})
+    classsection=[{"classid":int(classid[0]),"classname":str(classid[1]),"section":sections} for classid,sections in classsection1.items()]           
+    print classsection
+    return dict(classsection=XML(classsection))
+    
 @auth.requires_login()
 def index():
     if auth.has_membership(role=admin_str):
@@ -123,9 +136,10 @@ def userreport():
     return dict()
 
 @auth.requires_login()    
-def attendance():
+def attendance1():
     from collections import defaultdict
     rows=db(db.section_tbl.class_id==db.class_tbl.id).select(db.class_tbl.class_nm.with_alias('class_nm'),db.section_tbl.class_id.with_alias('class_id'),db.section_tbl.id.with_alias('id'),db.section_tbl.section_nm.with_alias('section_nm'))
+    print rows
     sections=[[r.class_nm,r.class_id,r.id,r.section_nm] for r in rows]
     classsection = defaultdict(list)
     for class_nm, classid, sectionid, sectionname in sections: 
@@ -150,6 +164,7 @@ def saveattendance():
     else:
         retMsg="Message No"
     absentees = request.post_vars['absenteeslistIDs[]'];
+    print absentees
     #db.attendance.insert(school_id=1,AbsenteesListFN=absentees,AbsenteesListAN=absentees)
     #db.commit()
     return retMsg

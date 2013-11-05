@@ -11,7 +11,7 @@
 #request.requires_https()
 string_length = 50
 
-db = DAL('mysql://root:ranjith@localhost/schoolapp',pool_size=1,check_reserved=['all'])
+db = DAL('mysql://root:vicky@localhost/test',pool_size=1,check_reserved=['all'])
 
 response.generic_patterns = ['*'] if request.is_local else []
 
@@ -65,6 +65,12 @@ auth.settings.extra_fields['auth_user']= [
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
 
+    
+db.define_table('parent',
+    Field('user_id', 'reference auth_user'),
+    Field('school_id', 'reference school_bs'),
+    )
+
 db.define_table('teacher_tbl',
     Field('user_id', 'reference auth_user'),
     Field('school_id', 'reference school_bs'),
@@ -105,7 +111,8 @@ db.define_table('section_tbl',
     
 db.define_table('student',
     Field('user_id', 'reference auth_user'),
-    Field('section_id', 'reference section_tbl')
+    Field('section_id', 'reference section_tbl'),
+    Field('parentid', 'reference parent'),
     )
 
 db.define_table('attendance',
@@ -149,6 +156,7 @@ use_janrain(auth, filename='private/janrain.key')
 admin_str='admin'
 teacher_str='teacher'
 student_str='student'
+parent_str='parent'
 ##############################################################
 
 ####################################################################

@@ -6,40 +6,28 @@
 {{block left_sidebar}}
 <div id="left_sidebar">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        {{=INPUT(_name='Workingday',_type='date')}}
+        {{=INPUT(_name='Workingday',_type="string",_class="date")}}
         <input name="classid" type="hidden"/>
 		<input name="sectionid" type="hidden"/>
+    	<h3>Classes</h3>
+    	<div id="class">
+    	</div>
     </div>
 </div>
 {{end}}
 
-
-<div class="btn-group">
-	<button class="btn">Classes</button>
-	<button class="btn dropdown-toggle" data-toggle="dropdown">
-		<span class="caret"></span>
-	</button>
-	<ul class="dropdown-menu" id="classes">
-		<li class="divider"></li>
-	</ul>
+<h3>Sections</h3>
+<div id="section">
 </div>
-<div class="btn-group">
-	<button class="btn">Sections</button>
-	<button data-toggle="dropdown" class="btn dropdown-toggle"> 
-    	<span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" id="sections">
-        <li class="divider"></li>
-    </ul>
-</div>
-
-
-<h4>Students</h4>
 
 <div class="row pull-right">
     <div class="legend-item"><span class="label label-success"></span> Present</div>
     <div class="legend-item"><span class="label label-danger"></span> Absent</div>
 </div>
+
+
+<h3>Students</h3>
+
 
 <div class="row" id="students">
     
@@ -88,14 +76,14 @@
     	});    	
     	
     	console.log( "ready!" );
+        console.log(classes);
         for(var i=0;i<classes.length;i++)
 		{
    			var classid=classes[i].classid;
             var classname=classes[i].classname;
-            $('#classes').append('<li><a href="#" onclick=GetSection(' + classid + ')><span>' + classname + '</span></a></li>');
+            $('#class').append('<button type="submit" class="btn" onclick=GetSection(' + classid + ')>'+ classname + '</button><br/>');		
 		}
-		
-	});
+    });
     
     function GetSection(classid)
     {
@@ -105,39 +93,48 @@
             if(classes[i].classid==classid)
             {
             	var sections=classes[i].section; 
-                $("#sections li").remove();
+                $("#section button").remove();
                 for(var j=0;j<sections.length;j++)
                 {
                 	var sectionid = sections[j].sectionid;
                 	var sectionname= sections[j].sectionname;
-                	$('#sections').append('<li><a href="#" onclick=GetStudents(' + sectionid + ') ><span>' + sectionname + '</span></a></li>');
+                	var students=sections[j].students;
+                	$('#section').append('<button type="submit" class="btn" onclick=GetStudents(' + sectionid + ')>'+ sectionname + '</button>');
                 }
             	break;
             }
         }
     }
     
-    function GetStudents(sectionid)
+	function GetStudents(sectionid)
     {
-    	image="{{=URL('static','images/defaultphoto.png')}}";
+        image="{{=URL('static','images/defaultphoto.png')}}";
         element="#students";
         $(element).empty();
-    	
-        $.ajax({
-            datatype: "json",
-        	type: "POST",
-            url: "{{=URL('school','getstudents')}}",
-        	data: {'sectionid':sectionid}
-        }).done(function(dat){
-            var data = jQuery.parseJSON(dat);
-
-            for(index=0; index<data.length; index++){
-                id=data[index].id;
-                name=data[index].first_name+" "+data[index].last_name;
-                present=0;
-                thumbnaildiv = add_thumbnail(id, name, present, image, element);
+        
+        for(var i=0;i<classes.length;i++)
+        {
+            if(classes[i].classid==1)
+            {
+            	var sections=classes[i].section; 
+                for(var j=0;j<sections.length;j++)
+                {
+                	if (sections[j].sectionid==sectionid)
+                    {
+                		var students=sections[j].students;
+                    	for(var index=0;index<students.length;index++)
+                		{
+                        	id=students[index].studentid;
+                			name=students[index].firstname+" "+students[index].lastname;
+                			present=0;
+                			thumbnaildiv = add_thumbnail(id, name, present, image, element);
+                        }
+                        break;
+                    }
+                }
+            	break;
             }
-		});
+        }
     }
 
     
